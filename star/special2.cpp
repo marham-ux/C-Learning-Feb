@@ -8,7 +8,7 @@ int i,j,k,x;
 i = j = k = x = 1 ;
 
 
-cout<<"enter the number for triangle: "<<endl;
+cout<<"enter the number : "<<endl;
 cin>> x;
 
 for(i = 1; i <= x ; ++i)

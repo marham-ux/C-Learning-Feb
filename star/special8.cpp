@@ -4,8 +4,8 @@ using namespace std;
 int main()
 {
 
-int i,j,x;
-i = j  = x = 1 ;
+int i,j,k,x;
+i = j = k = x = 0 ;
 
 
 cout<<"enter the number : "<<endl;
@@ -13,12 +13,13 @@ cin>> x;
 
 for(i = 1; i <= x ; ++i)
      {
-        
-        for(j = 1 ; j <= ((x*2) - 1) ; ++j)
+        k = 64 + i;
+        for(j = 1 ; j <= x ; ++j)
         {
-            if((j <= (x - i + 1)) || (j >=(x + i -1)))
-            {
-               cout<<"*";
+            if(i >= j)
+               {
+                cout<<char(k);
+                k--;
             }
             else
             {cout<<" ";}

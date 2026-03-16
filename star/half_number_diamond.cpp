@@ -7,7 +7,7 @@ int main()
 i = j = k = x = l =1 ;
 
 
-cout<<"enter the number for triangle: "<<endl;
+cout<<"enter the number : "<<endl;
 cin>> x;
 
 k = (x + 1)/2 + 1;
