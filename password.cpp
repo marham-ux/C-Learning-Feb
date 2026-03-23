@@ -10,8 +10,6 @@ int main()
 
    int length =password.length();//getting length
   
-
-
   bool hasUpper = false;
   bool hasLower = false;
   bool hasDigit = false;
@@ -25,9 +23,9 @@ int main()
          {hasLower = true;} 
          else if(isdigit(password[i]))
         {hasDigit = true;}
-        else if(int(password[i]) = 32) // ' ' 
+        else if(password[i]== ' ')
         {
-            cout<<"space found";
+            cout<<"space";
         }
         else
            hasSpecial = true;
