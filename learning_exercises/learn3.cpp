@@ -5,9 +5,9 @@
 
 using namespace std;
 
-bool isPhilandrope(string word);
-void process(bool isPhilandrope, string word);
-void philandrope (const string& user_text);
+bool  ispalindrope(string word);
+void process(bool  ispalindrope, string word);
+void checkForPalindrome (const string& user_text);
 int countWords(const string& user_text);
 int countUpper(const string& user_text);
 int countVowel(const string& user_text);
@@ -26,10 +26,13 @@ cout<<"Total Words              :"<<countWords(user_text)<<endl;
 cout<<"Vowels                   :"<<countVowel(user_text)<<endl;
 cout<<"Uppercase Letters        :"<<countUpper(user_text)<<endl;
 cout<<"Most Frequent Letter     :"<<countRepeated(user_text)<<endl;
-cout<<"Contains Palindrome Word :";
-philandrope(user_text);
+cout<<"Contains Palindrome Word :"<<endl;
+checkForPalindrome(user_text);
 
+return 0;
 }
+
+// ====================== FUNCTIONS ======================
 
 int countWords(const string& user_text)
 {
@@ -108,11 +111,11 @@ for(int i = 0; i < 26; i++)
     mostFreqLetter = 'a' + i;
 }
 }
- cout<<mostFreqLetter;
+ cout<<maxcount<<mostFreqLetter;
 return maxcount;
 }
 
-void philandrope (const string& user_text)
+void checkForPalindrome (const string& user_text)
 {
     string word ="";
   for(char ch : user_text)
@@ -122,7 +125,7 @@ void philandrope (const string& user_text)
 
         if(!word.empty())
         {
-        process(isPhilandrope(word),word);
+        process( ispalindrope(word),word);
         word ="";
         }
     }
@@ -131,12 +134,12 @@ void philandrope (const string& user_text)
   }
 if(!word.empty())
 {
-process(isPhilandrope(word),word);
+process( ispalindrope(word),word);
 }
 
 }
 
-bool isPhilandrope(string word)
+bool  ispalindrope(string word)
 {
     // Step 1: Convert entire word to lowercase
     for(char &ch : word) {          
@@ -160,24 +163,17 @@ bool isPhilandrope(string word)
 }
 int counter = 0;
 
-void process(bool isPhilandrope, string word)
+void process(bool  ispalindrope, string word)
 {
   
- if(isPhilandrope && counter == 0) 
+ if( ispalindrope && counter == 0) 
  {
   cout<<"yes"<<setw(10)<<word;
   counter++;
  }
- else if(isPhilandrope)
+ else if( ispalindrope)
  cout<<"  "<<word;
 }
-
-
-
-
-
-
-
 
 /* working but worse way
 bool process(string word)
