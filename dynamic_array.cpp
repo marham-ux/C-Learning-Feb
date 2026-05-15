@@ -83,5 +83,51 @@ void display(int &size, int *array)
 {
     for (int i = 0; i < size; i++)
         cout << array[i] << endl;
-    xc
+}
+
+void resizeCapacity(int *&array, size_t &size, size_t &capacity)
+{
+    size_t newCapacity;
+    cout << "Enter new capacity: ";
+    cin >> newCapacity;
+
+    if (newCapacity <= 0)
+    {
+        cout << "Invalid capacity! Must be greater than 0.\n";
+        return;
+    }
+
+    // If new capacity is same as current, do nothing
+    if (newCapacity == capacity)
+    {
+        cout << "Capacity is already " << capacity << ". No change needed.\n";
+        return;
+    }
+
+    // Allocate new array
+    int *newarray = new int[newCapacity];
+
+    // Copy existing elements (only up to new capacity)
+    size_t elementsToCopy = (newCapacity < size) ? newCapacity : size;
+
+    for (size_t i = 0; i < elementsToCopy; i++)
+    {
+        newarray[i] = array[i];
+    }
+
+    // Delete old array
+    delete[] array;
+
+    // Update everything
+    array = newarray;
+    capacity = newCapacity;
+
+    // Important: If shrinking, reduce size
+    if (newCapacity < size)
+    {
+        size = newCapacity;
+        cout << "Array shrunk. Last " << (size - newCapacity) << " elements were removed.\n";
+    }
+
+    cout << "Successfully resized to capacity: " << capacity << endl;
 }
